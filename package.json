@@ -1,5 +1,6 @@
 {
-  "name": "app-studio-frontend",
+  "name": "turing-studio-frontend",
+  "description": "Turing Studio frontend",
   "version": "0.1.0",
   "homepage": ".",
   "private": true,
