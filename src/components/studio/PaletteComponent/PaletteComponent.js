@@ -12,11 +12,11 @@ import {
 import PaletteComponentStyled from './palette_component_styles'
 
 const PaletteComponent = (props) => {
-  const { id, name, title } = props
+  const { id, name, title, type } = props
   const orderId = 0
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'palette-component',
-    item: { id, name, title, orderId },
+    item: { id, name, title, orderId, type },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),

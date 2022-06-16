@@ -5,10 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleExclamation } from '@fortawesome/pro-regular-svg-icons'
 import './style/style.css'
 import TextInput from './TextInput'
+import TextArea from './TextArea'
 import FormElementTypes from '../../constants/form_element_types'
 
 const types = {
   [FormElementTypes.TEXT_INPUT]: TextInput,
+  [FormElementTypes.TEXT_AREA]: TextArea,
 }
 
 export const FormElement = ({
@@ -82,7 +84,7 @@ export const FormElement = ({
   const [{ isDragging }, drag] = useDrag({
     type: 'screen-component',
     item: () => {
-      return { orderId, name, id }
+      return { orderId, name, id, type }
     },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
@@ -104,11 +106,18 @@ export const FormElement = ({
         {type !== FormElementTypes.CHECKBOX && <div className="form-element-default__label-text">{label}</div>}
         {required && <div className="form-element-default__required">*</div>}
       </div>
-      <input
-        className={classNames(className, 'text-input-default')}
-        onChange={onChange}
+      <FormComponent
         placeholder={placeholder}
+        data={data}
+        type={type}
+        name={name}
         value={value}
+        defaultValue={defaultValue}
+        label={label}
+        sublabel={sublabel}
+        onChange={onChange}
+        onClick={onClick}
+        checked={checked}
       />
       <div className="form-element-default__error">
         {error && (

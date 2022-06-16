@@ -67,6 +67,7 @@ export const addFormTemplateComponent = function* (action) {
       id: v4(),
       name: component.title,
       orderId: component.orderId,
+      type: component.type,
       ScreenComponent: Components[component.name],
     }
     console.log('NEW FORM TEMPLATE COMPONENT', newComponent)

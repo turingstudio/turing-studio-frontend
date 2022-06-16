@@ -164,8 +164,17 @@ const Forms = function () {
       return formData.map((item) => {
         console.log('FORM ITEM', item)
         if (item) {
-          const { ScreenComponent, orderId, name, id } = item
-          return <ScreenComponent key={orderId} moveComponent={moveComponent} orderId={orderId} name={name} id={id} />
+          const { ScreenComponent, orderId, name, id, type } = item
+          return (
+            <ScreenComponent
+              key={orderId}
+              moveComponent={moveComponent}
+              orderId={orderId}
+              name={name}
+              id={id}
+              type={type}
+            />
+          )
         }
       })
     }
