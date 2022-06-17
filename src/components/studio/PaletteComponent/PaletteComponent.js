@@ -1,19 +1,10 @@
 import React from 'react'
 import { useDrag } from 'react-dnd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faAlignJustify,
-  faLineColumns,
-  faHorizontalRule,
-  faInputText,
-  faImage,
-  faText,
-  faListDropdown,
-} from '@fortawesome/pro-regular-svg-icons'
 import PaletteComponentStyled from './palette_component_styles'
 
 const PaletteComponent = (props) => {
-  const { id, name, title, type } = props
+  const { id, name, title, type, icon } = props
   const orderId = 0
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'palette-component',
@@ -23,20 +14,9 @@ const PaletteComponent = (props) => {
     }),
   }))
 
-  const icons = {
-    FormElement: faInputText,
-    TextInput: faInputText,
-    ScreenSection: faAlignJustify,
-    ScreenSectionTwo: faLineColumns,
-    Divider: faHorizontalRule,
-    Image: faImage,
-    Text: faText,
-    FormElementSelect: faListDropdown,
-  }
-
   return (
     <PaletteComponentStyled ref={drag}>
-      <FontAwesomeIcon icon={icons[name]} />
+      <FontAwesomeIcon icon={icon} />
       <PaletteComponentStyled.title>{title}</PaletteComponentStyled.title>
     </PaletteComponentStyled>
   )

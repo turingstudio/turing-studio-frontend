@@ -7,12 +7,14 @@ import './style/style.css'
 import TextInput from './TextInput'
 import TextArea from './TextArea'
 import Select from './Select'
+import Checkbox from './Checkbox'
 import FormElementTypes from '../../constants/form_element_types'
 
 const types = {
   [FormElementTypes.TEXT_INPUT]: TextInput,
   [FormElementTypes.TEXT_AREA]: TextArea,
   [FormElementTypes.SELECT]: Select,
+  [FormElementTypes.CHECKBOX]: Checkbox,
 }
 
 export const FormElement = ({
