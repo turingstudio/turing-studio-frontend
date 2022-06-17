@@ -1,7 +1,13 @@
 import React from 'react'
 import classNames from 'classnames'
 
-export function Select({ className, placeholder, defaultValue, data, ...props }) {
+const defaultData = [
+  { key: '1', label: 'option one' },
+  { key: '2', label: 'option two' },
+  { key: '3', label: 'option three' },
+]
+
+export function Select({ className, placeholder, defaultValue, data = defaultData, ...props }) {
   const emptyOption = { key: '', label: 'select...' }
   if (data && data[0].key !== '') {
     data?.unshift(emptyOption)
