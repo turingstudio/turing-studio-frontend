@@ -1,5 +1,5 @@
 import React from 'react'
-import { faInputText, faListDropdown, faSquareCheck, faListRadio } from '@fortawesome/pro-regular-svg-icons'
+import { faInputText, faListDropdown, faSquareCheck, faListRadio, faCalendar } from '@fortawesome/pro-regular-svg-icons'
 import FormBuilderPaletteStyled from './form_builder_palette_styles'
 import PaletteComponent from '../PaletteComponent/PaletteComponent'
 import Trash from '../Trash/Trash'
@@ -45,6 +45,13 @@ const FormBuilderPalette = ({ removeFormComponent }) => {
           name="FormElement"
           type={FormElementTypes.RADIO}
           title="Radio Button"
+        />
+        <PaletteComponent
+          icon={faCalendar}
+          key="date_picker"
+          name="FormElement"
+          type={FormElementTypes.DATE_PICKER}
+          title="Date Picker"
         />
       </FormBuilderPaletteStyled.components>
       <FormBuilderPaletteStyled.trash>

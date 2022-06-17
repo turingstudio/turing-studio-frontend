@@ -9,6 +9,7 @@ import TextArea from './TextArea'
 import Select from './Select'
 import Checkbox from './Checkbox'
 import RadioButton from './RadioButton'
+import DatePicker from './DatePicker'
 import FormElementTypes from '../../constants/form_element_types'
 
 const types = {
@@ -17,6 +18,7 @@ const types = {
   [FormElementTypes.SELECT]: Select,
   [FormElementTypes.CHECKBOX]: Checkbox,
   [FormElementTypes.RADIO]: RadioButton,
+  [FormElementTypes.DATE_PICKER]: DatePicker,
 }
 
 export const FormElement = ({
