@@ -1,5 +1,5 @@
 import React from 'react'
-import { faInputText, faListDropdown, faSquareCheck } from '@fortawesome/pro-regular-svg-icons'
+import { faInputText, faListDropdown, faSquareCheck, faListRadio } from '@fortawesome/pro-regular-svg-icons'
 import FormBuilderPaletteStyled from './form_builder_palette_styles'
 import PaletteComponent from '../PaletteComponent/PaletteComponent'
 import Trash from '../Trash/Trash'
@@ -38,6 +38,13 @@ const FormBuilderPalette = ({ removeFormComponent }) => {
           name="FormElement"
           type={FormElementTypes.CHECKBOX}
           title="Checkbox"
+        />
+        <PaletteComponent
+          icon={faListRadio}
+          key="radio_button"
+          name="FormElement"
+          type={FormElementTypes.RADIO}
+          title="Radio Button"
         />
       </FormBuilderPaletteStyled.components>
       <FormBuilderPaletteStyled.trash>

@@ -6,6 +6,7 @@ import TextAreaComponent from './TextArea'
 import FormElementComponent from './FormElement'
 import SelectComponent from './Select'
 import CheckboxComponent from './Checkbox'
+import RadioButtonComponent from './RadioButton'
 
 export const Divider = DividerComponent
 export const ScreenSection = ScreenSectionComponent
@@ -15,3 +16,4 @@ export const TextArea = TextAreaComponent
 export const FormElement = FormElementComponent
 export const Select = SelectComponent
 export const Checkbox = CheckboxComponent
+export const RadioButton = RadioButtonComponent
