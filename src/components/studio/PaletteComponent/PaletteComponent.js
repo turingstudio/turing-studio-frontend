@@ -8,6 +8,7 @@ import {
   faInputText,
   faImage,
   faText,
+  faListDropdown,
 } from '@fortawesome/pro-regular-svg-icons'
 import PaletteComponentStyled from './palette_component_styles'
 
@@ -30,6 +31,7 @@ const PaletteComponent = (props) => {
     Divider: faHorizontalRule,
     Image: faImage,
     Text: faText,
+    FormElementSelect: faListDropdown,
   }
 
   return (

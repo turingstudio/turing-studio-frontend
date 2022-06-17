@@ -12,6 +12,7 @@ const FormBuilderPalette = ({ removeFormComponent }) => {
       <FormBuilderPaletteStyled.components>
         <PaletteComponent key="textInput" name="FormElement" type={FormElementTypes.TEXT_INPUT} title="Text Input" />
         <PaletteComponent key="textArea" name="FormElement" type={FormElementTypes.TEXT_AREA} title="Text Area" />
+        <PaletteComponent key="dropdown" name="FormElement" type={FormElementTypes.SELECT} title="Dropdown" />
       </FormBuilderPaletteStyled.components>
       <FormBuilderPaletteStyled.trash>
         <Trash removeFormComponent={removeFormComponent} type="form" />

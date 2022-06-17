@@ -6,11 +6,13 @@ import { faCircleExclamation } from '@fortawesome/pro-regular-svg-icons'
 import './style/style.css'
 import TextInput from './TextInput'
 import TextArea from './TextArea'
+import Select from './Select'
 import FormElementTypes from '../../constants/form_element_types'
 
 const types = {
   [FormElementTypes.TEXT_INPUT]: TextInput,
   [FormElementTypes.TEXT_AREA]: TextArea,
+  [FormElementTypes.SELECT]: Select,
 }
 
 export const FormElement = ({
@@ -19,7 +21,7 @@ export const FormElement = ({
   label = 'First Name',
   sublabel,
   error,
-  type = FormElementTypes.TEXT_INPUT,
+  type,
   name,
   value,
   defaultValue,
