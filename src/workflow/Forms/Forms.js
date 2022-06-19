@@ -36,6 +36,10 @@ const Forms = function () {
   const [formTemplateNameValid, setFormTemplateNameValid] = useState(false)
 
   useEffect(() => {
+    setFormTemplateNames(formTemplates && formTemplates.map(({ name }) => name))
+  }, [formTemplates])
+
+  useEffect(() => {
     dispatch(action({ type: GET_FORM_TEMPLATES }))
   }, [])
 

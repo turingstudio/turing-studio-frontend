@@ -14,6 +14,12 @@ class API {
     return data
   }
 
+  static async createFormTemplate(payload) {
+    console.log('API createFormTemplate(): ', payload)
+    const data = await axios.post(`${API_URL}/public/createFormTemplate`, payload).then((result) => result.data.result)
+    return data
+  }
+
   static async createAppTemplateScreen(payload) {
     console.log('API createAppTemplateScreen(): ', payload)
     const data = await axios

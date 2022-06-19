@@ -9,6 +9,7 @@ import {
   ADD_SCREEN_TEMPLATE_COMPONENT,
   CREATE_APP,
   CREATE_APP_TEMPLATE,
+  CREATE_FORM_TEMPLATE,
   CREATE_SCREEN,
   CREATE_APP_TEMPLATE_SCREEN,
   GET_APP,
@@ -157,6 +158,21 @@ export const createAppTemplate = function* (action) {
 }
 export const watchCreateAppTemplate = function* () {
   yield takeLatest(CREATE_APP_TEMPLATE, createAppTemplate)
+}
+
+export const createFormTemplate = function* (action) {
+  const { type } = action
+  try {
+    const data = yield call(API.createFormTemplate, action.data)
+    yield put(actionSuccess(data, type))
+    const data2 = yield call(API.getFormTemplates)
+    yield put(actionSuccess(data2, GET_FORM_TEMPLATES))
+  } catch (error) {
+    yield put(actionError(error, type))
+  }
+}
+export const watchCreateFormTemplate = function* () {
+  yield takeLatest(CREATE_FORM_TEMPLATE, createFormTemplate)
 }
 
 export const createScreen = function* (action) {
