@@ -10,14 +10,14 @@ const ScreenSectionTwoStyled = styled.div`
 `
 
 ScreenSectionTwoStyled.one = styled.div`
-  min-height: 40px;
+  height: 100%;
   width: 100%;
   margin: 10px;
   border: dotted 1px ${Colors.dividerColor};
 `
 
 ScreenSectionTwoStyled.two = styled.div`
-  min-height: 40px;
+  height: 100%;
   width: 100%;
   margin: 10px;
   border: dotted 1px ${Colors.dividerColor};
