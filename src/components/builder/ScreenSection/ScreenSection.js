@@ -5,6 +5,7 @@ import _ from 'lodash'
 import Measure from 'react-measure'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ScreenSectionStyled from './screen_section_styles'
+import DropZone from '../DropZone'
 
 const ScreenSection = (props) => {
   const { moveComponent, orderId, name, id, height, updateHeight } = props
@@ -78,7 +79,9 @@ const ScreenSection = (props) => {
     >
       {({ measureRef }) => (
         <div ref={measureRef}>
-          <ScreenSectionStyled ref={preview} style={{ opacity, height }} data-handler-id={handlerId} />
+          <ScreenSectionStyled ref={preview} style={{ opacity, height }} data-handler-id={handlerId}>
+            <DropZone componentId={id} />
+          </ScreenSectionStyled>
           <ScreenSectionStyled.handle ref={ref}>
             <FontAwesomeIcon icon={faGripDots} />
           </ScreenSectionStyled.handle>
