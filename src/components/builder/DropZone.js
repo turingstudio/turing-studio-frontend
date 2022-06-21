@@ -10,9 +10,16 @@ function DropZone(props) {
   const dispatch = useDispatch()
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'palette-subcomponent',
-    drop: (item) => {
+    drop: (item, monitor) => {
+      const offset = monitor.getSourceClientOffset()
+      console.log('OFFSET', offset)
       console.log('DROP ITEM', item)
       console.log('DROP ITEM ID', componentId)
+      if (offset && drop.current) {
+        const dropTargetXy = drop.current.getBoundingClientRect()
+        console.log('x:', offset.x - dropTargetXy.left)
+        console.log('y:', offset.y - dropTargetXy.top)
+      }
       if (item.type === 'text') {
         dispatch(action({ type: ADD_TEXT_COMPONENT, data: { item, componentId } }))
       }

@@ -5,7 +5,9 @@ import { actionSuccess, actionError } from './actions'
 import * as Components from '../components/builder'
 import {
   ADD_FORM_TEMPLATE_COMPONENT,
+  ADD_IMAGE_COMPONENT,
   ADD_SCREEN_COMPONENT,
+  ADD_TEXT_COMPONENT,
   ADD_SCREEN_TEMPLATE_COMPONENT,
   CREATE_APP,
   CREATE_APP_TEMPLATE,
@@ -90,6 +92,28 @@ export const addFormTemplateComponent = function* (action) {
 }
 export const watchAddFormTemplateComponent = function* () {
   yield takeLatest(ADD_FORM_TEMPLATE_COMPONENT, addFormTemplateComponent)
+}
+
+export const addTextComponent = function* (action) {
+  const { type, data } = action
+  try {
+    console.log('ITEM', data)
+    const newTextComponent = {
+      id: v4(),
+      parentId: data.parentComponentId,
+      height: 50,
+      width: 100,
+      type: data.type,
+    }
+    // const payload = { data: dataDeserialized, id: form.id }
+    // const result = yield call(API.updateFormTemplate, payload)
+    // yield put(actionSuccess(result, type))
+  } catch (error) {
+    yield put(actionError(error, type))
+  }
+}
+export const watchAddTextComponent = function* () {
+  yield takeLatest(ADD_TEXT_COMPONENT, addTextComponent)
 }
 
 export const addScreenComponent = function* (action) {
