@@ -1,5 +1,6 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
 import { v4 } from 'uuid'
+import ResizableRect from 'react-resizable-rotatable-draggable'
 import API from './api'
 import { actionSuccess, actionError } from './actions'
 import * as Components from '../components/builder'
@@ -100,11 +101,19 @@ export const addTextComponent = function* (action) {
     console.log('ITEM', data)
     const newTextComponent = {
       id: v4(),
-      parentId: data.parentComponentId,
+      parentId: data.componentId,
+      x: 50,
+      y: 50,
       height: 50,
       width: 100,
       type: data.type,
+      ScreenComponent: ResizableRect,
     }
+    // const dataDeserialized = deserialize(form.data)
+
+    console.log('NEW Text COMPONENT', newTextComponent)
+    // now add this component to its parent
+
     // const payload = { data: dataDeserialized, id: form.id }
     // const result = yield call(API.updateFormTemplate, payload)
     // yield put(actionSuccess(result, type))
