@@ -34,6 +34,13 @@ class API {
     return data
   }
 
+  static async createScreenSubcomponent(payload) {
+    console.log('API createScreenSubcomponent(): ', payload)
+    // eslint-disable-next-line max-len
+    const data = await axios.post(`${API_URL}/public/createScreenSubcomponent`, payload).then((result) => result.data.result)
+    return data
+  }
+
   static async createScreenTemplate(payload) {
     console.log('API createScreenTemplate(): ', payload)
     const data = await axios

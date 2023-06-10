@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { faGripDots } from '@fortawesome/pro-regular-svg-icons'
 import { useDrag, useDrop } from 'react-dnd'
 import _ from 'lodash'
@@ -12,6 +13,9 @@ const ScreenSection = (props) => {
   const [resizedOnce, setIsResizedOnce] = useState(false)
 
   const ref = useRef(null)
+
+  const app = useSelector((state) => state.app)
+  const { screen } = app
 
   const [{ handlerId }, drop] = useDrop({
     accept: 'screen-component',
@@ -80,7 +84,7 @@ const ScreenSection = (props) => {
       {({ measureRef }) => (
         <div ref={measureRef}>
           <ScreenSectionStyled ref={preview} style={{ opacity, height }} data-handler-id={handlerId}>
-            <DropZone componentId={id} />
+            <DropZone componentId={id} screenId={screen?.id} />
           </ScreenSectionStyled>
           <ScreenSectionStyled.handle ref={ref}>
             <FontAwesomeIcon icon={faGripDots} />

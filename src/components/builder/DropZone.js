@@ -6,7 +6,7 @@ import './style/style.css'
 import { ADD_TEXT_COMPONENT, ADD_IMAGE_COMPONENT } from '../../state/action_types'
 
 function DropZone(props) {
-  const { children, componentId } = props
+  const { children, componentId, screenId } = props
   const dispatch = useDispatch()
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'palette-subcomponent',
@@ -21,7 +21,7 @@ function DropZone(props) {
         console.log('y:', offset.y - dropTargetXy.top)
       }
       if (item.type === 'text') {
-        dispatch(action({ type: ADD_TEXT_COMPONENT, data: { item, componentId } }))
+        dispatch(action({ type: ADD_TEXT_COMPONENT, data: { item, componentId, screenId } }))
       }
       if (item.type === 'image') {
         dispatch(action({ type: ADD_IMAGE_COMPONENT, data: { item, componentId } }))
