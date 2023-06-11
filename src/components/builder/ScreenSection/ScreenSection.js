@@ -83,9 +83,9 @@ const ScreenSection = (props) => {
     >
       {({ measureRef }) => (
         <div ref={measureRef}>
-          <ScreenSectionStyled ref={preview} style={{ opacity, height }} data-handler-id={handlerId}>
-            <DropZone componentId={id} screenId={screen?.id} />
-          </ScreenSectionStyled>
+          <DropZone componentId={id} screenId={screen?.id}>
+            <ScreenSectionStyled ref={preview} style={{ opacity, height }} data-handler-id={handlerId} />
+          </DropZone>
           <ScreenSectionStyled.handle ref={ref}>
             <FontAwesomeIcon icon={faGripDots} />
           </ScreenSectionStyled.handle>
