@@ -23,7 +23,7 @@ import {
   GET_SCREEN_TEMPLATE,
   ADD_SCREEN_TEMPLATE_COMPONENT,
   ADD_FORM_TEMPLATE_COMPONENT,
-  PREVIEW,
+  PREVIEW, ADD_TEXT_COMPONENT,
 } from './action_types'
 
 const INITIAL_STATE = {
@@ -86,6 +86,8 @@ export default function (state = INITIAL_STATE, action) {
         screenTemplate: { ...state.screenTemplate, content: addTemplateContent(action.data) },
         currentScreenTemplateContent: [...state.currentScreenTemplateContent, ...[action.data]],
       }
+    case `${ADD_TEXT_COMPONENT}-${SUCCESS}`:
+      return { ...state, screen: action.data[0] }
     case SET_CONTENT:
       return { ...state, currentScreenContent: action.data }
     case SET_TEMPLATE_CONTENT:

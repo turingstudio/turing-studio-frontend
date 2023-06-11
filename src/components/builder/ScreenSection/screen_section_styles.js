@@ -9,6 +9,7 @@ const ScreenSectionStyled = styled.div`
   border: solid 1px ${Colors.dividerColor};
   resize: vertical;
   overflow: hidden;
+  position: relative;
 `
 
 ScreenSectionStyled.handle = styled.div`

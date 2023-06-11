@@ -12,7 +12,7 @@ import ResizableRectWrapper from "../ResizableRectWrapper";
 
 function ScreenSection(props) {
   const { moveComponent, orderId, name, id, height, updateHeight, json } = props
-  console.log('JSON', json)
+  console.log('ScreenSection: JSON', json)
 
   const [resizedOnce, setIsResizedOnce] = useState(false)
 

@@ -82,6 +82,7 @@ const Screens = function () {
   }
 
   useEffect(() => {
+    // NOTE: for some reason screen is not being updated after text component addition
     if (screen && screen.content) {
       console.log('=================== CURRENT SCREEN ID', screen.id)
       if (screen.id) {
@@ -209,6 +210,7 @@ const Screens = function () {
   }
 
   const renderAuthoringScreen = () => {
+    console.log('renderAuthoringScreen() called')
     if (content.length) {
       return content.map((item) => {
         if (item) {
