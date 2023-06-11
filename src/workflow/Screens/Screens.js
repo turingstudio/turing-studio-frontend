@@ -222,6 +222,7 @@ const Screens = function () {
               id={id}
               height={height}
               updateHeight={updateHeight}
+              json={item}
             />
           )
         }

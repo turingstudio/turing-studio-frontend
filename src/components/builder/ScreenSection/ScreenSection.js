@@ -2,14 +2,18 @@ import React, { useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { faGripDots } from '@fortawesome/pro-regular-svg-icons'
 import { useDrag, useDrop } from 'react-dnd'
-import _ from 'lodash'
+import _, { isArray } from 'lodash'
 import Measure from 'react-measure'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ResizableRect from 'react-resizable-rotatable-draggable'
 import ScreenSectionStyled from './screen_section_styles'
 import DropZone from '../DropZone'
+import AppIcon from '../../studio/AppIcon/AppIcon'
 
-const ScreenSection = (props) => {
-  const { moveComponent, orderId, name, id, height, updateHeight } = props
+function ScreenSection(props) {
+  const { moveComponent, orderId, name, id, height, updateHeight, json } = props
+  console.log('JSON', json)
+
   const [resizedOnce, setIsResizedOnce] = useState(false)
 
   const ref = useRef(null)
@@ -84,7 +88,20 @@ const ScreenSection = (props) => {
       {({ measureRef }) => (
         <div ref={measureRef}>
           <DropZone componentId={id} screenId={screen?.id}>
-            <ScreenSectionStyled ref={preview} style={{ opacity, height }} data-handler-id={handlerId} />
+            <ScreenSectionStyled ref={preview} style={{ opacity, height }} data-handler-id={handlerId}>
+              {json?.subcomponents &&
+                json.subcomponents.map((subcomponent) => (
+                  <ResizableRect
+                    key={subcomponent.id}
+                    id={subcomponent.id}
+                    parentId={subcomponent.parentId}
+                    x={subcomponent.x}
+                    y={subcomponent.y}
+                    height={subcomponent.height}
+                    width={subcomponent.width}
+                  />
+                ))}
+            </ScreenSectionStyled>
           </DropZone>
           <ScreenSectionStyled.handle ref={ref}>
             <FontAwesomeIcon icon={faGripDots} />
