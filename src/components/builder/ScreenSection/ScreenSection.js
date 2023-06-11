@@ -5,10 +5,10 @@ import { useDrag, useDrop } from 'react-dnd'
 import _, { isArray } from 'lodash'
 import Measure from 'react-measure'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import ResizableRect from 'react-resizable-rotatable-draggable'
 import ScreenSectionStyled from './screen_section_styles'
 import DropZone from '../DropZone'
 import AppIcon from '../../studio/AppIcon/AppIcon'
+import ResizableRectWrapper from "../ResizableRectWrapper";
 
 function ScreenSection(props) {
   const { moveComponent, orderId, name, id, height, updateHeight, json } = props
@@ -91,7 +91,7 @@ function ScreenSection(props) {
             <ScreenSectionStyled ref={preview} style={{ opacity, height }} data-handler-id={handlerId}>
               {json?.subcomponents &&
                 json.subcomponents.map((subcomponent) => (
-                  <ResizableRect
+                  <ResizableRectWrapper
                     key={subcomponent.id}
                     id={subcomponent.id}
                     parentId={subcomponent.parentId}

@@ -1,6 +1,5 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
 import { v4 } from 'uuid'
-import ResizableRect from 'react-resizable-rotatable-draggable'
 import API from './api'
 import { actionSuccess, actionError } from './actions'
 import * as Components from '../components/builder'
@@ -39,6 +38,7 @@ import {
   UPDATE_FORM_TEMPLATE,
 } from './action_types'
 import * as Constants from '../constants/constants'
+import ResizableRectWrapper from "../components/builder/ResizableRectWrapper";
 
 const reviver = (key, value) => {
   if (typeof value === 'string' && value.startsWith('constants.')) {
@@ -107,7 +107,7 @@ export const addTextComponent = function* (action) {
       height: 50,
       width: 100,
       type: data.type,
-      ScreenComponent: ResizableRect,
+      ScreenComponent: ResizableRectWrapper,
     }
     console.log('NEW Text COMPONENT', newTextComponent)
     const payload = { data: newTextComponent, screenId: data.screenId }
