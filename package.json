@@ -2,7 +2,7 @@
   "name": "turing-studio-frontend",
   "description": "Turing Studio frontend",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "./turing-studio",
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",
